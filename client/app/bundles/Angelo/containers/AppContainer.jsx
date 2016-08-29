@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import App from '../components/App';
+import React, { Component } from 'react'
+import App from '../components/App'
 
 class AppContainer extends Component {
   constructor(props, context) {
-    super(props, context);
-    console.log(props);
-    this.state = { name: this.props.name };
+    super(props, context)
+    this.state = {}
   }
 
   render() {
