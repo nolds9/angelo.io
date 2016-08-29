@@ -1,4 +1,4 @@
-class HelloWorldController < ApplicationController
+class AngeloController < ApplicationController
   def index
     @hello_world_props = { name: "Stranger" }
   end
