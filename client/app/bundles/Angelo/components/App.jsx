@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Playlists from "./Playlists"
 import CurrentPlaylist from './CurrentPlaylist'
-import { fetchAllPlaylists } from "../utils/spotify_helpers"
+import Navbar from './Navbar'
 
 class App extends Component {
   constructor(props) {
@@ -20,10 +20,11 @@ class App extends Component {
       currentPlaylist,
     })
   }
-  
+
   render() {
     return (
       <div className="container">
+        <Navbar />
         <Playlists results={this.state.results}
           onSetCurrent={ (i) => this.handleSetCurrent(i) } />
         <CurrentPlaylist playlist={this.state.currentPlaylist} />

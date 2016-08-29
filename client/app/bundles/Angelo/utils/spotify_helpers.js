@@ -17,11 +17,7 @@ export const fetchAllPlaylists = (user) => {
    .catch( err => {
      console.dir(err);
      if(err.response.status === 401) {
-      //  refreshUserToken(user)
+       console.log("Need to Refresh User Token");
      }
    })
 }
-
-  // refreshUserToken(user) => {
-  //
-  // }
