@@ -1,29 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Results from "./Results";
+import { fetchAllPlaylists } from "../utils/spotify_helpers"
 
 class App extends Component {
-  handleChange(e) {
-    const name = e.target.value;
-    this.props.updateName(name);
+  constructor(props) {
+    super(props)
+    this.state = {
+      results: []
+    }
   }
-
+  componentDidMount() {
+    let component = this;
+    fetchAllPlaylists().then(results => {
+      component.setState({
+        results
+      })
+    })
+  }
   render() {
-    const { name } = this.props;
     return (
-      <div className="container">
-        <h3>
-          Hello, {name}!
-        </h3>
-        <hr />
-        <form className="form-horizontal">
-          <label>
-            Say hello to:
-          </label>
-          <input
-            type="text"
-            value={name}
-            onChange={e => this.handleChange(e)}
-          />
-        </form>
+      <div>
+        <Results results={this.state.results} />
       </div>
     );
   }
