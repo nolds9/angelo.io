@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-let uri = "https://api.spotify.com/"
+const uri = "https://api.spotify.com/"
 
 export const fetchAllPlaylists = (user) => {
   let url = uri + "v1/me/playlists"
@@ -14,7 +14,14 @@ export const fetchAllPlaylists = (user) => {
    .then(response =>  {
     return response.data.items
    })
-   .catch((ex) => {
-     console.log(ex);
+   .catch( err => {
+     console.dir(err);
+     if(err.response.status === 401) {
+      //  refreshUserToken(user)
+     }
    })
 }
+
+  // refreshUserToken(user) => {
+  //
+  // }

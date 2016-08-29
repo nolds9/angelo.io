@@ -6,6 +6,8 @@ gem 'omniauth'
 gem 'omniauth-spotify', :git => 'https://github.com/nolds9/omniauth-spotify.git'
 gem 'figaro'
 gem 'pry'
+gem 'httparty'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use postgresql as the database for Active Record

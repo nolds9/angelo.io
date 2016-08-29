@@ -6,9 +6,10 @@ import { fetchAllPlaylists } from "../utils/spotify_helpers"
 class App extends Component {
   constructor(props) {
     super(props)
+    let { data } = this.props
     this.state = {
-      results: [],
-      currentPlaylist: {}
+      results: data,
+      currentPlaylist: null,
     }
   }
 
@@ -19,24 +20,13 @@ class App extends Component {
       currentPlaylist,
     })
   }
-
-  componentDidMount() {
-    let component = this;
-    fetchAllPlaylists(this.props.user).then(results => {
-      component.setState({
-        results
-      })
-    })
-  }
-
+  
   render() {
     return (
-      <div>
+      <div className="container">
         <Playlists results={this.state.results}
           onSetCurrent={ (i) => this.handleSetCurrent(i) } />
-        <div className="container">
-          <CurrentPlaylist playlist={this.state.currentPlaylist} />
-        </div>
+        <CurrentPlaylist playlist={this.state.currentPlaylist} />
       </div>
     );
   }

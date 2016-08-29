@@ -10,7 +10,7 @@ class AppContainer extends Component {
   render() {
     return (
       <div>
-        <App user={this.props.user} />
+        <App data={this.props.data} />
       </div>
     );
   }

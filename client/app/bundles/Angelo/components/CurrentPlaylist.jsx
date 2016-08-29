@@ -3,9 +3,7 @@ import React, { Component } from 'react'
 class CurrentPlaylist extends Component {
   render() {
     let { playlist } = this.props
-    console.log(playlist);
-    let isNotEmpty = Object.keys(playlist).length > 0 && playlist.constructor === Object
-    if (isNotEmpty) {
+    if (playlist) {
       let imageSrc = playlist.images[0] ? playlist.images[0].url : ""
       return (
         <div className="current-playlist">
