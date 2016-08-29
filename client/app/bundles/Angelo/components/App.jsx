@@ -6,12 +6,12 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      results: []
+      results: [],
     }
   }
   componentDidMount() {
     let component = this;
-    fetchAllPlaylists().then(results => {
+    fetchAllPlaylists(this.props.user).then(results => {
       component.setState({
         results
       })
