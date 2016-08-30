@@ -1,34 +1,29 @@
 import React, { Component } from 'react'
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
-import RaisedButton from 'material-ui/RaisedButton';
+import Divider from 'material-ui/Divider'
 
 class PlaylistContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { open: false };
-  }
-
-  handleToggle = () => this.setState({open: !this.state.open});
-
   render() {
-    let {onSetCurrent, playlists} = this.props
+    let {onSetCurrent, playlists, open, onToggleDrawer} = this.props
     let menu = playlists.map( (playlist, i) => {
       return (
-        <MenuItem key={i}>
-          <span onClick={ e => onSetCurrent(i) }>{playlist.name}</span>
+        <MenuItem onClick={ e => onSetCurrent(i) } key={i}>
+          <span>{playlist.name}</span>
+          <Divider />
         </MenuItem>
       )
     })
     return (
       <div>
-        <RaisedButton
-          label="Choose Playlist"
-          onTouchTap={this.handleToggle}
-        />
-      <Drawer width={300} openSecondary={true} open={this.state.open} >
-        {menu}
-      </Drawer>
+        <Drawer width={300}
+          openSecondary={true}
+          docked={false}
+          open={open}
+          onRequestChange={ open  => onToggleDrawer(open) }
+        >
+          {menu}
+        </Drawer>
       </div>
     );
   }
