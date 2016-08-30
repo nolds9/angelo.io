@@ -48,11 +48,11 @@ class App extends Component {
       <div className="container">
         <Navbar
           user={this.state.user}
-          handleToggleDrawer={ (e) => this.handleToggleDrawer(e) } />
+          handleToggleDrawer={ e => this.handleToggleDrawer(e) } />
         <PlaylistContainer
           playlists={this.state.results}
           open={this.state.drawerOpen}
-          onToggleDrawer={ (e) => this.handleToggleDrawer(e) }
+          onToggleDrawer={ e => this.handleToggleDrawer(e) }
           onSetCurrent={ (i) => this.handleSetCurrent(i) } />
         <Paper style={currentPlaylistStyle} zDepth={3}>
           <CurrentPlaylist playlist={this.state.currentPlaylist} />

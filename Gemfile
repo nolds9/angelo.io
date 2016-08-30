@@ -7,6 +7,7 @@ gem 'omniauth-spotify', :git => 'https://github.com/nolds9/omniauth-spotify.git'
 gem 'figaro'
 gem 'pry'
 gem 'httparty'
+gem 'awesome_print'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
@@ -44,7 +45,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
+  gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
