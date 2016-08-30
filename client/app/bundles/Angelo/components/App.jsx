@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Playlists from "./Playlists"
+import PlaylistContainer from "../containers/PlaylistContainer"
 import CurrentPlaylist from './CurrentPlaylist'
 import Navbar from './Navbar'
 
@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <div className="container">
         <Navbar />
-        <Playlists results={this.state.results}
+        <PlaylistContainer playlists={this.state.results}
           onSetCurrent={ (i) => this.handleSetCurrent(i) } />
         <CurrentPlaylist playlist={this.state.currentPlaylist} />
       </div>

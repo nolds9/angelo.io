@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import App from '../components/App'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin()
 
 class AppContainer extends Component {
   constructor(props, context) {
@@ -9,9 +12,9 @@ class AppContainer extends Component {
 
   render() {
     return (
-      <div>
+      <MuiThemeProvider>    
         <App data={this.props.data} />
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
