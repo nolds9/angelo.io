@@ -11,9 +11,10 @@ class AppContainer extends Component {
   }
 
   render() {
+    let { data, user } = this.props
     return (
       <MuiThemeProvider>
-        <App data={this.props.data} />
+        <App data={data} user={user} />
       </MuiThemeProvider>
     );
   }

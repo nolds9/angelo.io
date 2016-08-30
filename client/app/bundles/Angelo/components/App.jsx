@@ -18,8 +18,9 @@ const style = {
 class App extends Component {
   constructor(props) {
     super(props)
-    let { data } = this.props
+    let { data, user } = this.props
     this.state = {
+      user,
       results: data,
       currentPlaylist: null,
       drawerOpen: false
@@ -45,17 +46,19 @@ class App extends Component {
     let currentPlaylistStyle = this.state.currentPlaylist ? style : {display: "none"}
     return (
       <div className="container">
-        <Navbar handleToggleDrawer={ (e) => this.handleToggleDrawer(e) } />
+        <Navbar
+          user={this.state.user}
+          handleToggleDrawer={ (e) => this.handleToggleDrawer(e) } />
         <PlaylistContainer
           playlists={this.state.results}
           open={this.state.drawerOpen}
           onToggleDrawer={ (e) => this.handleToggleDrawer(e) }
           onSetCurrent={ (i) => this.handleSetCurrent(i) } />
-        <Paper style={currentPlaylistStyle} zDepth={1}>
+        <Paper style={currentPlaylistStyle} zDepth={3}>
           <CurrentPlaylist playlist={this.state.currentPlaylist} />
         </Paper>
       </div>
-    );
+    )
   }
 }
 
