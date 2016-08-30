@@ -15,13 +15,10 @@ const styles = {
   }
 };
 
-function handleActive(tab) {
-  // launch spotify webplayer
-}
-
 class CurrentPlaylist extends Component {
   render() {
     let { playlist } = this.props
+    let playerSrc = playlist && playlist.uri ? `https://embed.spotify.com/?uri=${playlist.uri}` : ""
     console.dir(playlist)
     if (playlist) {
       let imageSrc = playlist.images[0] ? playlist.images[0].url : ""
@@ -42,16 +39,16 @@ class CurrentPlaylist extends Component {
                   </p>
                 </div>
               </Tab>
-              <Tab
-                label="Play"
-                data-route="/home"
-                onActive={handleActive}
-              >
+              <Tab label="Play" >
                 <div style={ styles.centerCard }>
-                  <h2 style={styles.headline}>Tab Three</h2>
-                  <p>
-                    Go to spotify
-                  </p>
+                  <h2 style={styles.headline}>Now Playing</h2>
+                  <iframe
+                    src={playerSrc}
+                    width="300"
+                    height="380"
+                    frameBorder="0"
+                    allowTransparency="true">
+                  </iframe>
                 </div>
               </Tab>
             </Tabs>
