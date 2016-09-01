@@ -30,10 +30,15 @@ class Loading extends Component {
   render() {
     return(
       <div>
-        <p>{this.state.text}</p>
+        <p style={style}>{this.state.text}</p>
       </div>
     )
   }
 }
 
 export default Loading
+
+
+const style = {
+  fontSize: "22px"
+}

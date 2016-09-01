@@ -12,6 +12,10 @@ const styles = {
   centerCard: {
     textAlign: 'center',
     marginBottom: "1em",
+  },
+  albumArt: {
+    height: "300px",
+    width: "350px"
   }
 }
 
@@ -31,7 +35,7 @@ class CurrentPlaylist extends Component {
               <div style={ styles.centerCard }>
                 <h1 style={styles.headline}>{playlist.name}</h1>
                 <p style={styles.headline}>{playlist.tracks.total} songs</p>
-                <img src={imageSrc} />
+                <img style={styles.albumArt} src={imageSrc} />
               </div>
             </Tab>
             <Tab label="Play" >

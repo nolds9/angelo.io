@@ -7,13 +7,19 @@ import Paper from 'material-ui/Paper';
 import { fetchRecommendations } from '../utils/spotify_helpers'
 
 const style = {
-  height: "500px",
+  height: "525px",
   width: "85%",
   marginLeft: "4em",
   marginTop: 25,
+  marginBottom: "15px",
   textAlign: 'center',
   display: 'inline-block',
 };
+
+const container = {
+  height: "100%",
+  width: "100%"
+}
 
 class App extends Component {
   constructor(props) {
@@ -70,7 +76,7 @@ class App extends Component {
   render() {
     let displayLoading = this.state.currentPlaylist ? style : {display: "none"}
     return (
-      <div className="container">
+      <div className="container" style={container}>
         <Navbar
           handleClickLogo={ this.refreshState }
           user={this.state.user}
