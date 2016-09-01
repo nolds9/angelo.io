@@ -17,12 +17,12 @@ const styles = {
 
 class CurrentPlaylist extends Component {
   render() {
-    let { playlist } = this.props
+    let { playlist, recommendations } = this.props
     console.dir(playlist)
     if (playlist) {
       let imageSrc = playlist.images[0] ? playlist.images[0].url : ""
-      let uris = playlist.recommendations.join(",")
-      let recSrc = playlist.recommendations.length > 0 ? `https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:${uris}` : ""
+      let uris = recommendations.join(",")
+      let recSrc = uris.length > 0 ? `https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:${uris}` : ""
       let playerSrc = playlist && playlist.uri ? `https://embed.spotify.com/?uri=${playlist.uri}` : ""
       return (
         <div className="container">
@@ -61,7 +61,9 @@ class CurrentPlaylist extends Component {
           </Tabs>
         </div>
       )
-    } else { return <p></p> }
+    } else {
+      return <p></p>
+    }
   }
 }
 

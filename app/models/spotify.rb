@@ -45,19 +45,22 @@ class Spotify
     end
   end
 
+  def generate_recommendations id
+    playlist = find_playlist id
+    artists = most_frequent_artists playlist
+    recommendations = get_recommendations_from_seeds artists
+  end
+
   def discover_weekly
     self.playlists.select { |playlist|
       playlist["name"] == "Discover Weekly"
     }[0]
   end
 
-  # TODO convert to recommendations via ajax
-  def playlists_with_recommendations
-    self.playlists.each do |playlist|
-      artists = most_frequent_artists(playlist)
-      recommendations = get_recommendations_from_seeds(artists)
-      playlist["recommendations"] = recommendations
-    end
+  def find_playlist id
+    self.playlists.select { |playlist|
+      playlist["id"] == id
+    }[0]
   end
 
   def duplicate(playlist)

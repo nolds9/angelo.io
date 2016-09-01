@@ -21,3 +21,15 @@ export const fetchAllPlaylists = (user) => {
      }
    })
 }
+
+export const fetchRecommendations = (id) => {
+  let url = `/get_recommendations?id=${id}`
+
+  return axios.get(url)
+    .then(results => {
+      return results.data
+    })
+    .catch(err => {
+      console.dir(err)
+    })
+}

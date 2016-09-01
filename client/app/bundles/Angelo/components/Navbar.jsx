@@ -12,7 +12,7 @@ const styles = {
 
 class Navbar extends Component {
   onTouchTap(e){
-    console.log("Go Home");
+    this.props.handleClickLogo()
   }
 
   onToggle(e){
@@ -34,7 +34,7 @@ class Navbar extends Component {
               style={ { color: "white" } }
               label="Logout"
               href="/logout"  />
-            <RaisedButton label="Playlists"onTouchTap={ e => this.onToggle(e) } />
+            <RaisedButton label="Playlists" onTouchTap={ e => this.onToggle(e) } />
           </div>
         }
       />
